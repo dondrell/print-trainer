@@ -1,0 +1,28 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.wrapper{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.title{
+	font: 42px/47px OpenSans;
+	margin: 6vh 0;
+	/*color: #434344;*/
+}
+
+.main-area{
+	width: 60vw;
+	height: 50vh;
+	min-width: 550px;
+	min-height: 400px;
+	display: flex;
+
+	border: 2px solid black;
+}

@@ -1,0 +1,24 @@
+.text{
+	width: 70%;
+	height: 100%;
+	border: 2px solid red;
+	font: 20px/28px OpenSans;
+	text-indent: 1em;
+	padding: 15px;
+	overflow: auto;
+	white-space: pre-wrap;
+}
+
+.text__letter__green{
+	color: green;
+}
+
+.text__letter__gray{
+	background-color: gray;
+	border-radius: 2px;
+}
+
+.text__letter__red{
+	background-color: red;
+	border-radius: 2px;
+}

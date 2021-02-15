@@ -1,0 +1,10 @@
+.current-result{
+	width: 30%;
+	padding: 10px;
+	font: 20px/28px OpenSans;
+	border: 2px solid green;
+}
+
+.value{
+	font: 30px/28px OpenSans;
+}
