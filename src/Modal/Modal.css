@@ -1,3 +1,62 @@
 .modal{
-	
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: rgba(0,0,0,.5);
+}
+
+.modal__window{
+	width: 50vw;
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+	background-color: white;
+	border-radius: 10px;
+	border: 2px blue solid;
+}
+
+.window{
+	padding: 15px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	overflow: auto;
+}
+
+.window__text{
+	text-align: center;
+	margin: 20px;
+	font: 20px/28px OpenSans;
+}
+
+.window__input{
+	margin: 15px;
+	width: 30%;
+	font: 20px/28px OpenSans;
+	outline: none;
+}
+
+.window__input__error{
+	border: 2px red solid;
+}
+
+.window__button{
+	width: 25%;
+	height: 20%;
+	margin: 15px;
+	font: 30px OpenSans;
+	color: white;
+	background-image: linear-gradient(45deg, magenta, blue);
+	outline: none;
+	border: none;
+	cursor: pointer;
+	box-shadow: 1px 1px 3px rgba(0,0,0,.5);
+}
+
+.window__button:active{
+	box-shadow: none;
+	box-shadow: inset 2px 1px 8px rgba(0,0,0,.4);
 }

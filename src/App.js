@@ -1,7 +1,7 @@
 import React from 'react'
 import Text from './Text/Text'
 import CurrentResult from './CurrentResult/CurrentResult'
-// import Modal from '.'
+import Modal from './Modal/Modal'
 
 
 class App extends React.Component{
@@ -11,7 +11,8 @@ class App extends React.Component{
 		letter_counter: 0,
 		time: 0,
 		timer_id: null,
-		text: 'Но диаграммы связей освещают чрезвычайно интересные особенности картины в целом, однако конкретные выводы, разумеется, рассмотрены исключительно в разрезе маркетинговых и финансовых предпосылок. Значимость этих проблем настолько очевидна, что постоянный количественный рост и сфера нашей активности способствует подготовке и реализации модели развития. В частности, глубокий уровень погружения выявляет срочную потребность прогресса профессионального сообщества.',
+		sentence_amount: null,
+		text: 'Ожидание получения текста...',
 	}
 
 	incErrorCounter = () =>
@@ -19,6 +20,18 @@ class App extends React.Component{
 
 	incLetterCounter = () =>
 		this.setState({letter_counter:this.state.letter_counter+1})
+
+	closeModal = (value) => {
+		let text = 'Подождите';
+		fetch('https://fish-text.ru/get?number='+(+value))
+			.then(res=>res.json())
+			.then(res=>{
+				this.setState({text:(res.status === 'success'?res.text:'Что-то пошло не так.')});
+			})
+			.catch(res=>this.setState({text:'Что-то пошло не так.'}));
+		this.setState({sentence_amount: value,is_modal_open: false});
+
+	}
 	
 	
 
@@ -35,22 +48,37 @@ class App extends React.Component{
 		clearInterval(this.state.timer_id);
 	}
 
+	restart = () => {
+		if (this.state.timer_id)
+			clearInterval(this.state.timer_id);
+		this.setState({
+			is_modal_open: true,
+			error_counter : 0,
+			letter_counter: 0,
+			time: 0,
+			timer_id: null,
+			sentence_amount: null,
+			text: 'Ожидание получения текста...',
+		});
+	}
 
 	render(){
 		return (
-			// {is_modal_open && <Modal></Modal>}
 			<div className='wrapper'>
+				{this.state.is_modal_open && <Modal onButtonClick={this.closeModal}/>}
 				<h1 className='title'>Скоропечатание?</h1>
 				<main className='main-area'>
 					<Text onPrintingError={this.incErrorCounter} 
 						onPrintingLetter={this.incLetterCounter}
 						onStartPrinting={this.start}
 						onEndPrinting={this.end}
-						text={this.state.text}/>
+						text={this.state.text}
+						isModalOpen={this.state.is_modal_open}/>
 					<CurrentResult letter_counter={this.state.letter_counter}
 						time={this.state.time}
 						error_counter={this.state.error_counter}
 						size={this.state.text.length}/>
+					<button onClick={this.restart}>restart</button>
 				</main>
 			</div>
 		);

@@ -1,13 +1,16 @@
 import React from 'react'
 import './Text.css'
 
-class Text extends React.PureComponent{
+class Text extends React.Component{
 	state = {
 		last_letter_num: 0,
-		error: false
+		error: false,
 	};
 
 	handleKeyPress = event=>{
+		if (this.props.isModalOpen)
+			return;
+
 		let {last_letter_num, error} = this.state;
 		let {text} = this.props;
 		if (last_letter_num === 0 && !error)
