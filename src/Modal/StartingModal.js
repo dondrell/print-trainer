@@ -1,5 +1,3 @@
-<<<<<<< Updated upstream:src/Modal/Modal.js
-=======
 import React from 'react'
 import './Modal.css'
 
@@ -43,4 +41,3 @@ class StartingModal extends React.Component{
 
 
 export default StartingModal;
->>>>>>> Stashed changes:src/Modal/StartingModal.js

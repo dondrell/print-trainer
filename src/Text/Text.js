@@ -1,21 +1,18 @@
 import React from 'react'
 import './Text.css'
 
-class Text extends React.PureComponent{
+class Text extends React.Component{
 	state = {
 		last_letter_num: 0,
-		error: false
+		error: false,
 	};
 
 	handleKeyPress = event=>{
-<<<<<<< Updated upstream
-=======
 		if (event.key_code == 32) //to prevent scrolling
 			event.preventDefault();
 		if (this.props.isModalOpen)
 			return;
 
->>>>>>> Stashed changes
 		let {last_letter_num, error} = this.state;
 		let {text} = this.props;
 		if (last_letter_num === 0 && !error)
