@@ -8,6 +8,14 @@ class Text extends React.PureComponent{
 	};
 
 	handleKeyPress = event=>{
+<<<<<<< Updated upstream
+=======
+		if (event.key_code == 32) //to prevent scrolling
+			event.preventDefault();
+		if (this.props.isModalOpen)
+			return;
+
+>>>>>>> Stashed changes
 		let {last_letter_num, error} = this.state;
 		let {text} = this.props;
 		if (last_letter_num === 0 && !error)
@@ -18,6 +26,7 @@ class Text extends React.PureComponent{
 			this.props.onPrintingLetter();
 			if (last_letter_num === text.length - 1)
 				this.props.onEndPrinting();
+			
 		}
 		else{
 			this.setState({error: true});
@@ -25,8 +34,11 @@ class Text extends React.PureComponent{
 		}
 	};
 
+	init = () => this.setState({last_letter_num: 0,error: false,})
+
 	componentDidMount(){
 		document.addEventListener('keypress', this.handleKeyPress);
+		this.props.shareOnRestart(this.init);
 	}
 	componentWillUnmount(){
 		document.removeEventListener('keypress', this.handleKeyPress);
