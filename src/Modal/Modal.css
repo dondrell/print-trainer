@@ -13,8 +13,8 @@
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%,-50%);
-	background-color: white;
-	border-radius: 10px;
+	background-color: #252525;
+	border-radius: 20px;
 	border: 2px blue solid;
 }
 
@@ -54,15 +54,18 @@
 	margin: 10px;
 	padding: 10px 30px;
 	font: 30px OpenSans;
-	color: white;
+	color: #eee;
 	background-image: linear-gradient(45deg, magenta, blue);
 	outline: none;
 	border: none;
 	cursor: pointer;
-	box-shadow: 1px 1px 3px rgba(0,0,0,.5);
 }
 
 .window__button:active{
 	box-shadow: none;
 	box-shadow: inset 2px 1px 8px rgba(0,0,0,.4);
+}
+
+.window__button:hover{
+	background-image: linear-gradient(45deg, #FF00FF, #42AAFF);
 }

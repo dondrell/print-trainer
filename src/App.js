@@ -122,7 +122,7 @@ class App extends React.Component{
 							size={this.state.text.length}/>
 						<ResultList result_list={this.state.result_list}/>
 					</div>
-					<button onClick={this.restart}>restart</button>
+					<button className='restart-button' onClick={this.restart}>restart</button>
 				</main>
 			</div>
 		);
