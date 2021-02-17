@@ -1,5 +1,5 @@
 import React from 'react'
-import './CurrentResult.css'
+import './Results.css'
 
 //вычисление скорости: количество знаков / количество секунд * 60
 
@@ -9,8 +9,8 @@ function CurrentResult({time, letter_counter, error_counter, size}){
 
 	return (
 		<div className='current-result'>
-			<p>Скорость: <span className='value'>{speed}</span> зн./мин.</p>
-			<p>Точность: <span className='value'>{accuracy}</span> %</p>
+			<p>Скорость: <span className='current-result__value'>{speed}</span> зн./мин.</p>
+			<p>Точность: <span className='current-result__value'>{accuracy}</span> %</p>
 		</div>
 	)
 }

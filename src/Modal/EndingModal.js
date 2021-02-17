@@ -26,11 +26,15 @@ class EndingModal extends React.Component{
 					</p>
 					<input onChange={this.handleInput} 
 						className={'window__input' + (input_error? ' window__input__error':'')}
-						type='input'></input>
-					<button onClick={!input_error&&value?
-						()=>this.props.onButtonClick(value):
-						()=>this.setState({input_error: true})}
-						className='window__button'>Готово</button>
+						type='input'/>
+					<div style={{display:'flex',justifyContent:'center'}}>
+						<button onClick={(!input_error&&value)?
+							()=>this.props.onSaveButtonClick(value):
+							null}
+							className='window__button'>Сохранить</button>
+						<button onClick={this.props.onCancelButtonClick}
+							className='window__button'>Отмена</button>
+					</div>
 				</div>
 			</div>
 		)

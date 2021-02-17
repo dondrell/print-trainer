@@ -22,3 +22,10 @@
 	background-color: red;
 	border-radius: 2px;
 }
+
+@media (min-width: 769px) and (max-width: 4096px) {
+  .text {
+    font-size: calc(20px + 40 * ((100vw - 769px) / 4096));
+    line-height: calc(28px + 40 * ((100vw - 769px) / 4096));
+  }
+}
